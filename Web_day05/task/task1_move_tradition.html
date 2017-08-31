@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>点击红块移动-传统方式实现</title>
+		<style type="text/css">
+			#move {
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				top: 100px;
+				left: 100px;
+			}
+		</style>
+		<script type="text/javascript">
+		</script>
+	</head>
+
+	<body>
+		<div id="move">
+
+		</div>
+	</body>
+	<script type="text/javascript">
+		var m_div = document.getElementById("move");
+		var flag = false;
+		var div_x;
+		var div_y;
+		var mouse_x;
+		var mouse_y;
+		m_div.onmousedown = function() {
+			var eve;
+			if (window.event) {
+				eve = window.event;
+			} else {
+				eve = arguments[0];
+			}
+			div_x = document.defaultView.getComputedStyle(m_div).left;
+			div_y = document.defaultView.getComputedStyle(m_div).top
+			mouse_x = eve.clientX;
+			mouse_y = eve.clientY;
+			flag = true;
+		}
+		document.onmouseup = function() {
+			flag = false;
+		}
+		document.onmousemove = function() {
+			var eve;
+			if (window.event) {
+				eve = window.event;
+			} else {
+				eve = arguments[0];
+			}
+			if (flag) {
+				m_div.style.top = eve.clientY - mouse_y + parseInt(div_y) + "px";
+				m_div.style.left = eve.clientX - mouse_x + parseInt(div_x) + "px";
+			}
+		}
+	</script>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function createPerson(sName, sAge) {
+				var p=new Object();
+				p.name = sName;
+				p.age = sAge;
+				p.sleep = function() {
+					alert("人在睡觉")
+				}
+				return p;
+			}
+			var person1 = createPerson("张三", 20);
+			alert(person1.name);
+			person1.sleep();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

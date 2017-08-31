@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>利用jQuery实现跨浏览器的move</title>
+		<style type="text/css">
+			#myDiv {
+				width: 100px;
+				height: 100px;
+				top: 100px;
+				left: 100px;
+				position: absolute;
+				background-color: red;
+			}
+			#myDiv:hover{
+				cursor: pointer;
+			}
+		</style>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="myDiv">
+
+		</div>
+		<script type="text/javascript">
+			$(function() {
+				var div_x, div_y, mouse_x, mouse_y;
+				$('#myDiv').mousedown(function(event) {
+					div_x = parseInt($(this).css("left"));
+					div_y = parseInt($(this).css("top"));
+					mouse_x = event.pageX;
+					mouse_y = event.pageY;
+					$(document).on("mousemove", divMove);
+				});
+				$('#myDiv').mouseup(function() {
+					$(document).off("mousemove", divMove);
+				});
+
+				function divMove(event) {
+					var mouse_current_x = event.pageX;
+					var mouse_current_y = event.pageY;
+					$('#myDiv').css("top", (mouse_current_y - mouse_y + div_y) + "px");
+					$('#myDiv').css("left", (mouse_current_x - mouse_x + div_x) + "px");
+				}
+			});
+		</script>
+	</body>
+
+</html>

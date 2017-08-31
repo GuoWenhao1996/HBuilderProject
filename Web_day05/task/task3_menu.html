@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>菜单</title>
+		<style type="text/css">
+			body {
+				background-color: #1E1E1E;
+			}
+			
+			#all {
+				width: 1011px;
+				height: 50px;
+				margin: auto;
+				background-color: #000000;
+			}
+			
+			#all>ul {
+				color: #fff;
+				margin: 20px 0px;
+				padding: 0px 0px;
+				font-size: 14px;
+				list-style: none;
+			}
+			
+			#all>ul>li {
+				float: left;
+			}
+			
+			#all>ul>li>div {
+				margin: 0px;
+				padding: 0px 20px;
+				line-height: 50px;
+			}
+			
+			#all>ul>li>div:hover {
+				cursor: pointer;
+			}
+			
+			#all>ul>li>ul {
+				list-style: none;
+				margin: 0px;
+				padding: 1px 0px;
+				color: #fff;
+				background-color: #2F2F2F;
+				position: absolute;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#all>ul>li>ul>li {
+				margin: 0px;
+				padding: 1px 20px;
+				width: 190px;
+				line-height: 30px;
+			}
+			
+			#all>ul>li>ul>li:hover {
+				cursor: pointer;
+				background-color: #6AAC00;
+			}
+		</style>
+		<script type="text/javascript">
+			var itv;
+
+			function showLi(li) {
+				var div = li.getElementsByTagName("div")[0];
+				div.style.color = "#85AB58";
+				div.style.backgroundColor = "#2F2F2F";
+				var m_ul = li.getElementsByTagName("ul")[0];
+				if (m_ul) {
+					m_ul.style.display = "block";
+				}
+			}
+
+			function notShowLi(li) {
+				var div = li.getElementsByTagName("div")[0];
+				div.style.color = "#fff";
+				div.style.backgroundColor = "#000";
+				var m_ul = li.getElementsByTagName("ul")[0];
+				if (m_ul) {
+					m_ul.style.display = "none";
+				}
+			}
+
+			function tx(div) {
+				clearInterval(itv);
+				var wid = 0;
+				var m_ul = div.nextElementSibling;
+				if (m_ul) {
+					m_ul.style.width = wid + "px";
+					itv = setInterval(function() {
+						wid = wid + 2;
+						if (wid >= 230) {
+							clearInterval(itv);
+						}
+						m_ul.style.width = wid + "px";
+					}, 1);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="all">
+			<ul>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">DOWNLOAD DRIVERS </div>
+					<ul>
+						<li>Download Drivers</li>
+						<li>Driver Widget</li>
+						<li>NVDIA Software</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">SHOP</div>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">PRODUCTS</div>
+					<ul>
+						<li>Desktop</li>
+						<li>Workstation</li>
+						<li>Servers</li>
+						<li>Motherboard</li>
+						<li>High Performance Computing</li>
+						<li>Notebook</li>
+						<li>Mobile</li>
+						<li>Business</li>
+						<li>Apple</li>
+						<li>Software</li>
+						<li>Home Entertainment</li>
+						<li>Downloadable Games</li>
+						<li>Game Console</li>
+						<li>Legacy Products</li>
+						<li>Promotions</li>
+						<li>Where to Buy</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">TECHNOLOGIES</div>
+					<ul>
+						<li>NVIDIA SLI</li>
+						<li>NVIDIA Hybrid SLI</li>
+						<li>ESA</li>
+						<li>NVIDIA PureVideo</li>
+						<li>CUDA</li>
+						<li>NVIDIA PhysX</li>
+						<li>MXM</li>
+						<li>Windows Vista</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">COMMUNITIES</div>
+					<ul>
+						<li>nZone</li>
+						<li>SLI Zone</li>
+						<li>CUDA Zone</li>
+						<li>Developer Zone</li>
+						<li>PartnerForce</li>
+						<li>Gelato Zone</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">COMPANY INFO</div>
+					<ul>
+						<li>Investor Relatios</li>
+						<li>Channel Partners</li>
+						<li>Contact Information</li>
+						<li>Corporate Milestones</li>
+						<li>Social Responsibility</li>
+						<li>Employment</li>
+						<li>University Relations</li>
+						<li>Executive Profiles</li>
+						<li>Corporate Awards</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">NEWS</div>
+					<ul>
+						<li>Press Room</li>
+						<li>NVISION</li>
+						<li>Events Calendar</li>
+						<li>Success Stories</li>
+						<li>NVIDIA in the News</li>
+						<li>NVIDIA Newsletter</li>
+					</ul>
+				</li>
+				<li onmouseover="showLi(this)" onmouseleave="notShowLi(this)">
+					<div onmouseover="tx(this)">SUPPORT</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+
+</html>

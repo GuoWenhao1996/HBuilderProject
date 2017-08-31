@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表单验证</title>
+		<style type="text/css">
+			label {
+				color: red;
+			}
+			
+			label.valid {
+				color: lightgreen;
+			}
+			
+			form {
+				margin-left: 30%;
+				font-size: 20px;
+			}
+			
+			input {
+				width: 200px;
+				height: 30px;
+				font-size: 20px;
+				margin: 10px 0px;
+			}
+			
+			.yzm_input {
+				width: 70px;
+			}
+			
+			.yzm_label {
+				margin-left: 130px;
+			}
+			
+			#yzm {
+				margin-top: 7px;
+				margin-left: 10px;
+				position: absolute;
+			}
+			
+			.submit {
+				margin-left: 80px;
+			}
+		</style>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.validate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<form action="#" id="form" method="post">
+			订单编号：<input type="text" name="orderid" placeholder="请输入订单编号" />
+			<label></label><br /> 
+			客户姓名：<input type="text" name="username" placeholder="请输入客户姓名" />
+			<label></label><br />
+			身份证号：<input type="text" name="idcard" placeholder="请输入身份证号" />
+			<label></label><br />
+			送货地址：<input type="text" name="address" placeholder="请输入送货地址" />
+			<label></label><br />
+			联系电话：<input type="text" name="telphone" placeholder="请输入联系电话" />
+			<label></label><br />
+			电子邮箱：<input type="text" name="email" placeholder="请输入电子邮箱" />
+			<label></label><br />
+			　验证码：<input type="text" class="yzm_input" name="yzm" placeholder="" />
+			<canvas id="yzm" width="120" height="40" onclick="str_yzm=getYzm()"></canvas>
+			<label class="yzm_label"></label><br />
+			<input type="submit" class="submit" value="提交" />
+		</form>
+		<script src="js/yzm.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/checkForm.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>继承</title>
+		<script type="text/javascript">
+			function Person(pName, pAge) {
+				this.name = pName;
+				this.age = pAge;
+				this.eat = function() {
+					alert(this.name+"真能吃！")
+				}
+			}
+			function Student(sName,sAge) {
+				Person.call(this,sName,sAge);
+			}
+			var s1=new Student("郭文浩");
+			s1.eat();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

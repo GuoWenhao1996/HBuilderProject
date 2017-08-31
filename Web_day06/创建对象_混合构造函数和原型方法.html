@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(sName,sAge){
+				this.name=sName;
+				this.age=sAge;
+			}
+			Person.prototype.sleep=function(){
+				alert(this.name+"醒醒了！");
+			}
+			
+			var person =new Person("张三",20);
+			person.sleep();
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

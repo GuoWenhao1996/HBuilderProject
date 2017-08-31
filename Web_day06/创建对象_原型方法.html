@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(){}
+			Person.prototype.name="张三";
+			Person.prototype.sleep=function(){
+				alert("醒醒了！");
+			}
+			var person=new Person();
+			var person1=new Person();
+			alert(person.prototype==person1.prototype);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>菜单动态效果</title>
+
+		<style type="text/css">
+			li>ul {
+				height: 0px;
+				overflow: hidden;
+			}
+			
+			li>p:hover {
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			function menuFlash(this_p) {
+				var m_ul = this_p.nextElementSibling;
+				var menuHeight = document.defaultView.getComputedStyle(m_ul).height;
+				var height = parseInt(menuHeight);
+				if (height <= 0) {
+					var itv = setInterval(function() {
+						if (height >= 85) {
+							clearInterval(itv);
+							return;
+						}
+						height = height + 1;
+						m_ul.style.height = height + "px";
+					}, 5);
+				} else {
+					var itv = setInterval(function() {
+						if (height <= 0) {
+							clearInterval(itv);
+							return;
+						}
+						height = height - 1;
+						m_ul.style.height = height + "px";
+					}, 5);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<ul>
+			<li>
+				<p onclick="menuFlash(this)">一级菜单</p>
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				<p onclick="menuFlash(this)">一级菜单</p>
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>
+				<p onclick="menuFlash(this)">一级菜单</p>
+				<ul>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+			JS操作CSS样式表
+				1、操作内嵌样式表
+				2、操作内联和外部样式表
+					（1）、获得style对象
+					（2）、style对象的属性（操作内嵌样式表）
+						style.样式	style.样式=值
+					（2）、style对象的方法更改样式（操作内联和外部样式表）
+				3、操作最终样式表
+					（1）获取的是最终样式(只读)
+						DOM:
+							document.defaultView.getComputedStyle("元素结点对象").属性样式;
+						IE:
+							结点对象.currentStyle.属性样式;
+							
+						使用jQuery可以兼容浏览器
+						
+					（2）更改的是内嵌样式
+		-->
+
+		<script type="text/javascript">
+			/*只能操作内嵌样式*/
+			function neiqian() {
+				
+				var div = document.getElementsByTagName("div")[0];
+				var sty = div.style;
+				//	alert(sty.width);
+				//	alert(sty.backgroundColor);
+				var wid = sty.width;
+				sty.width = parseInt(wid) + 10 + "px";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div onclick="neiqian()" style="width: 100px; height: 100px; background-color: #f00;">
+			这是一个div
+		</div>
+	</body>
+
+</html>

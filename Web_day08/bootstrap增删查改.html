@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>bootstrap增删查改</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="container" style="width:1000px;">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="col-md-12">
+						<h1 class="text-primary">啦啦啦啦通讯录<small> 基于bootstrap前端框架实现</small></h1>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-md-offset-6">
+					<div class="input-group">
+						<input id="queryInput" type="text" class="form-control" placeholder="输入姓名模糊查询">
+						<span class="input-group-btn">
+							<button class="btn btn-info" onclick="queryFriend()">查询</button>
+						</span>
+					</div>
+				</div>
+				<div class="col-md-2" style="padding-left: 0px;">
+					<button class="btn btn-primary" data-toggle="modal" data-target="#addModal">新增</button>
+				</div>
+			</div>
+			<hr/>
+			<div class="row">
+				<table class="col-md-offset-1 table table-striped table-bordered table-hover text-center" style="width: 850px;">
+					<tr class="success">
+						<td width="100px"><strong>编号</strong></td>
+						<td width="250px"><strong>姓名</strong></td>
+						<td width="100px"><strong>年龄</strong></td>
+						<td width="250px"><strong>电话</strong></td>
+						<td width="150px"><strong>操作</strong></td>
+					</tr>
+				</table>
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-4">
+					<button class="btn btn-info" onclick="pageTop()">首页</button>
+					<button class="btn btn-info" onclick="pageUp()">上一页</button>
+					<label id="page" class="h4"><strong><1/3></strong></label>
+					<button class="btn btn-info" onclick="pageDown()">下一页</button>
+					<button class="btn btn-info" onclick="pageBottom()">尾页</button>
+				</div>
+
+				<!-- addModal -->
+				<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">添加好友</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">姓名：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkName(1)" placeholder="请输入1-10个汉字的姓名" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="addNameErr"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">年龄：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkAge(1)" placeholder="请输入0~100之间的数字" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="addAgeErr"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">电话：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkTel(1)" placeholder="请输入11位手机号" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="addTelErr"></label>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" onclick="addFriend(this)">提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- updateModal -->
+				<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+					<div class="modal-dialog" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								<h4 class="modal-title" id="myModalLabel">修改好友</h4>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">姓名：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkName(2)" placeholder="请输入1-10个汉字的姓名" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="updateNameErr"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">年龄：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkAge(2)" placeholder="请输入0~100之间的数字" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="updateAgeErr"></label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-md-offset-2 text-right">
+										<label style="margin-top: 5px;">电话：</label>
+									</div>
+									<div class="col-md-5 input-group">
+										<input type="text" class="form-control" value="" onblur="checkTel(2)" placeholder="请输入11位手机号" />
+									</div>
+									<div class="col-md-8 col-md-offset-4">
+										<label id="updateTelErr"></label>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+								<button type="button" class="btn btn-primary" onclick="updateFriend()">提交</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/bootstrapOperateTable.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" id="model">
+		<tr>
+			<td>${num}</td>
+			<td>${name}</td>
+			<td>${age}</td>
+			<td>${telephone}</td>
+			<td>
+				<button class="btn btn-warning btn-xs"  onclick="showInfo(${num})" data-toggle="modal" data-target="#updateModal">修改</button>
+				<button class="btn btn-danger btn-xs" onclick="deleteFriend(${num})">删除</button>
+			</td>
+		</tr>	
+	</script>
+
+</html>

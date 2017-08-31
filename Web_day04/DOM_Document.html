@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM_Document</title>
+		<script type="text/javascript">
+			function getElements() {
+				var x = document.getElementsByName("myInput");
+				alert(x[0].value);
+				alert(x[1].value);
+				alert(x[2].value);
+				alert(x.length);
+			}
+
+			function getElements1() {
+				var x = document.getElementsByTagName("input");
+				alert(x.length);
+				alert(x[0].value);
+				alert(x[1].value);
+				alert(x[2].value);
+				alert(x[3].value);
+				alert(x[4].value);
+				alert(x[5].value);
+				alert(x[6].value);
+				alert(x[7].value);
+			}
+
+			function createNewDoc() {
+				var newDoc = document.open("text/html", "replace");
+				var txt = "<html><body>Learning about the DOM is FUN!</body></html>";
+				newDoc.write(txt);
+				newDoc.close();
+			}
+		</script>
+	</head>
+
+	<body>
+		The cookies associated with this document is:
+		<script type="text/javascript">
+			document.write(document.cookie)
+		</script>
+		<br /> The domain name for this document is:
+		<script type="text/javascript">
+			document.write(document.domain)
+		</script>
+		<br /> This document was last modified on:
+		<script type="text/javascript">
+			document.write(document.lastModified)
+		</script>
+		<br />
+		<script type="text/javascript">
+			document.write(document.referrer)
+		</script>
+		<br />
+		<script type="text/javascript">
+			document.write(document.title)
+		</script>
+		<br />
+		<script type="text/javascript">
+			document.write(document.URL)
+		</script>
+		<br />
+		<input name="myInput" type="text" size="20" /><br />
+		<input name="myInput" type="text" size="20" /><br />
+		<input name="myInput" type="text" size="20" /><br />
+		<br />
+		<input type="button" onclick="getElements()" value="名为 'myInput' 的元素有多少个？" />
+		<br />
+		<input name="myInput" type="text" size="20" /><br />
+		<input name="myInput" type="text" size="20" /><br />
+		<input name="myInput" type="text" size="20" /><br />
+		<br />
+		<input type="button" onclick="getElements1()" value="How many input elements?" />
+		<br />
+
+		<input type="button" value="Write to a new document" onclick="createNewDoc()">
+	</body>
+
+</html>

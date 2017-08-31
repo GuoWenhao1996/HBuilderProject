@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>全选全不选</title>
+		<script type="text/javascript">
+			function checkAll() {
+				var ches = document.getElementsByName("yx");
+				for (var i = 1; i < ches.length; i++) {
+					ches[i].checked = ches[0].checked;
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<form action="#" method="post">
+			<input type="checkbox" name="yx" value="0" onchange="checkAll()" /> 全选/全不选<br />
+			<input type="checkbox" name="yx" value="1" /> 德玛西亚<br />
+			<input type="checkbox" name="yx" value="2" /> 寒冰射手<br />
+			<input type="checkbox" name="yx" value="3" /> 流浪法师<br />
+			<input type="checkbox" name="yx" value="4" /> 卡牌大师<br />
+			<input type="checkbox" name="yx" value="5" /> 冰霜女巫
+		</form>
+	</body>
+
+</html>

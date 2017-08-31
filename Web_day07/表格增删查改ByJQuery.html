@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格增删查改ByJQuery</title>
+		<style type="text/css">
+			#top {
+				width: 900px;
+				margin: auto;
+				margin-top: 20px;
+			}
+			
+			#top > label {
+				margin-left: 50px;
+				font-size: 32px;
+				font-weight: bold;
+				height: 40px;
+				line-height: 40px;
+			}
+			
+			.btn {
+				width: 80px;
+				height: 30px;
+				font-size: 16px;
+			}
+			
+			table {
+				border-collapse: collapse;
+				width: 800px;
+				font-size: 16px;
+				text-align: center;
+			}
+			
+			table button {
+				margin-left: 10px;
+			}
+			
+			tr {
+				height: 30px;
+			}
+			
+			#btn1 {
+				margin-left: 380px;
+				margin-right: 15px;
+			}
+			
+			#frame,#content {
+				width: 470px;
+				height: 260px;
+				background-color: #ccc;
+				position: fixed;
+				left: 30%;
+				top: 30%;
+				font-size: 28px;
+				padding-left: 130px;
+				padding-top: 40px;
+				display: none;
+			}
+			#content{
+				width: 1000px;
+				height: 500px;
+				left: 10%;
+				top: 2%;
+			}
+			#content>table{
+				width: 600px;
+				margin-left: 100px;
+			}
+			#frame> input {
+				height: 30px;
+				font-size: 20px;
+			}
+			
+			.framebtn {
+				width: 100px;
+				margin-left: 50px;
+			}
+			.contentbtn {
+				width: 100px;
+				margin-left: 100px;
+			}
+		</style>
+		<script src="js/jquery-1.11.0.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/tableOperate.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="top">
+			<label>啦啦啦啦通讯录</label>
+			<button id="btn1" class="btn" onclick="add()">新增</button>
+			<button class="btn" onclick="query()">查询</button>
+			<hr />
+		</div>
+		<table border="1" align="center">
+			<tr>
+				<th width="100px">编号</th>
+				<th width="200px">姓名</th>
+				<th width="100px">年龄</th>
+				<th width="200px">电话</th>
+				<th width="200px">操作</th>
+			</tr>
+		</table>
+		<div id="frame">
+			编号：<input type="text" value="" disabled placeholder="请在此处输入编号"/><br /> 
+			姓名：<input type="text" value="" placeholder="请在此处输入姓名" /><br />
+			年龄：<input type="text" value="" placeholder="请在此处输入年龄" /><br />
+			电话：<input type="text" value="" placeholder="请在此处输入电话" /><br />
+			<input class="btn framebtn" onclick="addToFriends()" type="button" value="提交" />
+			<input class="btn framebtn" onclick="notShow()" type="button" value="取消" />
+		</div>
+		<div id="content">
+			<table border="1" align="center" id="tableQuery">
+				<tr>
+					<th width="100px">编号</th>
+					<th width="200px">姓名</th>
+					<th width="100px">年龄</th>
+					<th width="200px">电话</th>
+				</tr>
+			</table>
+			<input class="btn contentbtn" onclick="back()" type="button" value="返回" />
+		</div>
+		
+	</body>
+
+	<script type="text/javascript" id="model">
+		<tr>
+			<td>${num}</td>
+			<td>${name}</td>
+			<td>${age}</td>
+			<td>${telephone}</td>
+			<td>
+				<button class="btn" onclick="deleteFriend(${num})">删除</button>
+				<button class="btn" onclick="updateFriend(${num})">修改</button>
+			</td>
+		</tr>
+	</script>
+	<script type="text/javascript" id="modelQuery">
+		<tr>
+			<td>${num}</td>
+			<td>${name}</td>
+			<td>${age}</td>
+			<td>${telephone}</td>
+		</tr>
+	</script>
+
+</html>

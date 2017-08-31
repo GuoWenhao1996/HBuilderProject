@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉列表的二级联动</title>
+		<script type="text/javascript">
+			var YX = [
+				['恶魔巫师', '死灵法师', '死亡先知', '大魔导师'],
+				['幻影刺客', '熊战士', '幽鬼', '幻影长矛手'],
+				['半人马酋长', '牛头人酋长', '裂魂人', '斧王']
+			];
+
+			function showYX(obj) {
+				var ops = obj.options;
+				var index = obj.selectedIndex - 1;
+				var sel_YX = document.getElementsByName("yingxiong")[0];
+				var op_YX = sel_YX.options;
+				for (var i = 1; i < op_YX.length;) {
+					op_YX[i].remove();
+				}
+				for (var i = 0; i < YX[index].length; i++) {
+					op_YX = new Option(YX[index][i]);
+					sel_YX.appendChild(op_YX);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		属性
+		<select name="shuxing" onchange="showYX(this)">
+			<option value="0">-请选择-</option>
+			<option value="1">智力英雄</option>
+			<option value="2">敏捷英雄</option>
+			<option value="3">力量英雄</option>
+		</select> 英雄
+		<select name="yingxiong">
+			<option value="0">-----请选择-----</option>
+		</select>
+	</body>
+
+</html>

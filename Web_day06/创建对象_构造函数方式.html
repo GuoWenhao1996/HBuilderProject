@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Person(sName, sAge) {
+				this.name = sName;
+				this.age = sAge;
+				this.sleep = function() {
+					alert(this.name + "在睡觉");
+				}
+			}
+			var p = new Person("张三", 20);
+			p.sleep();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

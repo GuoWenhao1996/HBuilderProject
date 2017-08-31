@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>法师战士和刺客</title>
+		<script type="text/javascript">
+			var YX = [
+				['诡术妖姬', '黑暗之女', '皎月女神', '虚空行者'],
+				['德玛西亚之力', '德邦总管'],
+				['影流之主', '无极剑圣', '虚空掠夺者']
+			];
+
+			function showYX(obj) {
+				var ops = obj.options;
+				var index = obj.selectedIndex - 1;
+				var sel_YX = document.getElementsByName("yingxiong")[0];
+				var op_YX = sel_YX.options;
+				for (var i = 1; i < op_YX.length;) {
+					op_YX[i].remove();
+				}
+				for (var i = 0; i < YX[index].length; i++) {
+					op_YX = new Option(YX[index][i]);
+					sel_YX.appendChild(op_YX);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		属性
+		<select name="shuxing" onchange="showYX(this)">
+			<option value="0">-请选择-</option>
+			<option value="1">法师</option>
+			<option value="2">战士</option>
+			<option value="3">刺客</option>
+		</select> 英雄
+		<select name="yingxiong">
+			<option value="0">-----请选择-----</option>
+		</select>
+	</body>
+
+</html>

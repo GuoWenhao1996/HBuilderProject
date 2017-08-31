@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DOM结点对象属性</title>
+	</head>
+
+	<body>
+		<div style="width: 200px; height: 100px; background-color: red;">哈哈哈111</div>
+		<script type="text/javascript">
+			var html = document.firstChild.nextSibling.lastChild.firstElementChild;
+			alert(html.nodeName);
+			alert(html.attributes);
+			alert(html.nodeValue);
+			//			var htmllast=document.lastChild;
+			//			alert(htmllast);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>表格的增加删除</title>
+	</head>
+	<style type="text/css">
+		div {
+			width: 1000px;
+			margin: auto;
+			font-size: 16px;
+		}
+		
+		input {
+			margin: 20px 10px;
+			font-size: 16px;
+		}
+		
+		table {
+			border-collapse: collapse;
+			width: 50%;
+		}
+	</style>
+	<script type="text/javascript">
+		function add() {
+			var inputs = document.getElementsByTagName("input");
+			var name = inputs[0].value;
+			var age = inputs[1].value;
+			var tel = inputs[2].value;
+			if (name == "") {
+				alert("姓名不能为空！");
+				return;
+			}
+			if (age == "") {
+				alert("年龄不能为空！");
+				return;
+			}
+			if (isNaN(age)) {
+				alert("年龄只能为数字！");
+				return;
+			}
+			if (tel == "") {
+				alert("电话号码不能为空！");
+				return;
+			}
+			if (isNaN(tel)) {
+				alert("电话号码只能为数字！");
+				return;
+			}
+			var node_name = document.createTextNode(name);
+			var node_age = document.createTextNode(age);
+			var node_tel = document.createTextNode(tel);
+			var node_delete = document.createTextNode("删除");
+			var href_delete = document.createAttribute("href");
+			href_delete.value = "#";
+			var onclick_delete = document.createAttribute("onclick");
+			onclick_delete.value = "deleteTr()";
+			var a_delete = document.createElement("a")
+			a_delete.appendChild(node_delete);
+			a_delete.setAttributeNode(href_delete);
+			a_delete.setAttributeNode(onclick_delete);
+			var td_name = document.createElement("td");
+			var td_age = document.createElement("td");
+			var td_tel = document.createElement("td");
+			var td_delete = document.createElement("td");
+			var tr = document.createElement("tr");
+			td_name.appendChild(node_name);
+			td_age.appendChild(node_age);
+			td_tel.appendChild(node_tel);
+			td_delete.appendChild(a_delete);
+			tr.appendChild(td_name);
+			tr.appendChild(td_age);
+			tr.appendChild(td_tel);
+			tr.appendChild(td_delete);
+			var table = document.getElementsByTagName("table")[0];
+			table.appendChild(tr);
+		}
+
+		function deleteTr() {
+			var a = event.srcElement;
+			var index = a.parentElement.parentElement.rowIndex;
+			var tr = document.getElementsByTagName("tr");
+			tr[index].parentNode.removeChild(tr[index]);
+		}
+	</script>
+
+	<body>
+		<div>
+			姓名：<input type="text" value="" /> 年龄：
+			<input type="text" value="" /> 电话号码：
+			<input type="text" value="" />
+			<input type="button" value="添加" onclick="add()" />
+		</div>
+		<table border="1" align="center">
+			<tr>
+				<th width="30%">姓名</th>
+				<th width="20%">年龄</th>
+				<th width="40%">电话</th>
+				<th width="10%"></th>
+			</tr>
+			<tr>
+				<td>张三</td>
+				<td>20</td>
+				<td>18866662222</td>
+				<td><a onclick="deleteTr()" href="#">删除<a></td>
+			</tr>
+			<tr>
+				<td>李四</td>
+				<td>21</td>
+				<td>13300001111</td>
+				<td><a onclick="deleteTr()" href="#">删除<a></td>
+			</tr>
+		</table>
+	</body>
+</html>

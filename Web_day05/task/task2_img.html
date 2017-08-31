@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>小图变大</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				margin-top: 10px;
+				padding: 0px;
+			}
+			
+			#top {
+				width: 500px;
+				margin-left: 400px;
+			}
+			
+			#top>img {
+				width: 240px;
+			}
+			
+			#top>img:hover {
+				cursor: pointer;
+			}
+			
+			#img1,
+			#img2 {
+				width: 0px;
+				margin: auto;
+				overflow: hidden;
+				display: none;
+			}
+			
+			#img1>img,
+			#img2>img {
+				border-radius: 50px;
+				margin-left: 30px;
+				box-shadow: 0px 0px 50px 4px #777;
+			}
+		</style>
+		<script type="text/javascript">
+			var itv;
+
+			function showImg(divId) {
+				var div = document.getElementById(divId);
+				div.style.display = "block";
+				var width = parseInt(document.defaultView.getComputedStyle(div).width);
+				itv = setInterval(function() {
+					width = width + 3;
+					div.style.width = width + "px";
+					if (width > 900) {
+						clearInterval(itv);
+					}
+				}, 1);
+			}
+
+			function notShowImg(divId) {
+				var div = document.getElementById(divId);
+				div.style.display = "none";
+				div.style.width = "0px";
+				clearInterval(itv);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="top">
+			<img onmouseover="showImg('img1')" onmouseleave="notShowImg('img1')" src="img/img_1.jpg" />
+			<img onmouseover="showImg('img2')" onmouseleave="notShowImg('img2')" src="img/img_2.jpg" />
+		</div>
+		<hr />
+		<div id="img1">
+			<img src="img/img_1.jpg" />
+		</div>
+		<div id="img2">
+			<img src="img/img_2.jpg" />
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>画廊</title>
+		<style type="text/css">
+			#all {
+				background-color: #CDCDCD;
+				width: 640px;
+				margin: auto;
+				padding: 10px 20px;
+			}
+			
+			#top {
+				margin-bottom: 20px;
+			}
+			
+			#bottom>div {
+				width: 600px;
+				margin: auto;
+			}
+			
+			#bottom>div>img {
+				border: 3px solid #5E5959;
+				width: 110px;
+				opacity: 0.5;
+			}
+			
+			#bottom>div>img:first-child {
+				opacity: 1;
+			}
+			
+			#bottom>div>img:hover {
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			var itv;
+
+			function showBigImg(img) {
+				clearInterval(itv);
+				var imgs = img.parentElement.getElementsByTagName("img");
+				for (var i = 0; i < imgs.length; i++) {
+					imgs[i].style.opacity = 0.5;
+				}
+				img.style.opacity = 1;
+				var top_img = document.getElementById("top").firstElementChild;
+				top_img.src = img.src;
+				var op = 0.2;
+				top_img.style.opacity = op;
+				itv = setInterval(function() {
+					op = op + 0.01;
+					top_img.style.opacity = op;
+					if (op >= 1) {
+						clearInterval(itv);
+					}
+				}, 8);
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="all">
+			<div id="top">
+				<img src="img/gallery-img1.jpg" />
+			</div>
+			<div id="bottom">
+				<div>
+					<img onclick="showBigImg(this)" src="img/gallery-img1.jpg" />
+					<img onclick="showBigImg(this)" src="img/gallery-img2.jpg" />
+					<img onclick="showBigImg(this)" src="img/gallery-img3.jpg" />
+					<img onclick="showBigImg(this)" src="img/gallery-img4.jpg" />
+					<img onclick="showBigImg(this)" src="img/gallery-img5.jpg" />
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

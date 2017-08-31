@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<link rel="icon" href="img/title.png" />
+		<title>个人注册</title>
+		<style type="text/css">
+			* {
+				margin: 0px;
+				padding: 0px;
+			}
+			
+			body {
+				background-color: white;
+			}
+			
+			#top {
+				height: 110px;
+				border-bottom-color: #F1F1F1;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+				box-shadow: 0px 0px 5px 4px #F1F1F1;
+			}
+			
+			#top>div {
+				height: 76px;
+				width: 1210px;
+				margin: auto;
+			}
+			
+			#top>div>a {
+				margin-top: 24px;
+				width: 160px;
+				height: 50px;
+				float: left;
+			}
+			
+			#top>div>a {
+				cursor: pointer;
+			}
+			
+			.title {
+				margin-top: 34px;
+				padding-left: 20px;
+				width: 96px;
+				height: 34px;
+				font-size: 24px;
+				color: #333333;
+				float: left;
+			}
+			
+			.login {
+				margin-top: 55px;
+				margin-left: 65%;
+				height: 21px;
+				font-size: 16px;
+				color: #999999;
+				float: left;
+			}
+			
+			.login>a {
+				color: #333333;
+				text-decoration: none;
+			}
+			
+			.login>a:hover {
+				text-decoration: underline;
+			}
+			
+			#content {
+				height: 605px;
+				width: 1210px;
+				margin: auto;
+				margin-bottom: 60px;
+			}
+			
+			#content>div {
+				margin: 50px 190px 60px 190px;
+				width: 830px;
+				height: 605px;
+			}
+			
+			.left {
+				width: 400px;
+				height: 570px;
+				float: left;
+			}
+			
+			.left>form>div {
+				width: 400px;
+				height: 84px;
+			}
+			
+			.left>form>div>div {
+				width: 378px;
+				height: 52px;
+				padding-left: 20px;
+				border: 1px solid #DDDDDD;
+				font-size: 14px;
+				color: #666666;
+				line-height: 52px;
+			}
+			
+			.left>form>div>div>input {
+				font-size: 14px;
+				margin-left: 40px;
+				outline: none;
+				border-width: 0px;
+				color: #CCCCCC;
+			}
+			
+			.left>form>input {
+				width: 400px;
+				height: 52px;
+				border: 1px solid #EE2222;
+				font-size: 16px;
+				color: #FFFFFF;
+				background-color: #EE2222;
+			}
+			
+			.left>form>input:hover {
+				cursor: pointer;
+			}
+			
+			.yzm>input {
+				width: 120px;
+				margin-right: 2px;
+			}
+			
+			.yzm>a>img {
+				margin: 3px 3px;
+				float: right;
+			}
+			
+			.yzm>input:last-child {
+				width: 110px;
+				height: 46px;
+				margin: 3px 3px;
+				float: right;
+				border: 1px solid #F2F2F2;
+				font-size: 13px;
+				color: #333333;
+				background-color: #F2F2F2;
+			}
+			
+			.yzm>input:last-child:hover {
+				cursor: pointer;
+			}
+			
+			.left>form>div>p {
+				width: 400px;
+				height: 27px;
+				padding-top: 5px;
+				font-size: 12px;
+				color: #C5C5C5;
+				display: none;
+			}
+			
+			.left>form>div>p>img {
+				margin-right: 8px;
+			}
+			
+			.right {
+				margin-left: 104px;
+				padding-left: 90px;
+				width: 190px;
+				height: 605px;
+				border-left-color: #E6E6E6;
+				border-left-style: solid;
+				border-left-width: 1px;
+				float: left;
+			}
+			
+			.up {
+				margin-left: 30px;
+				width: 160px;
+				height: 60px;
+				border-bottom-color: #DDDDDD;
+				border-bottom-style: solid;
+				border-bottom-width: 1px;
+			}
+			
+			.down {
+				margin-left: 30px;
+				margin-top: 30px;
+				width: 180px;
+				height: 40px;
+			}
+			
+			.up>a,
+			.down>a {
+				font-size: 14px;
+				color: #666666;
+				text-decoration: none;
+			}
+			
+			.up>a:hover,
+			.down>a:hover {
+				font-size: 14px;
+				color: #000;
+				font-weight: bolder;
+			}
+			
+			.up>a:hover {
+				text-decoration: underline;
+			}
+			
+			.up>a>img,
+			.down>a>img {
+				margin-right: 15px;
+			}
+			
+			#foot {
+				width: 1210px;
+				height: 87px;
+				margin: auto;
+				padding-bottom: 30px;
+				border-top-color: #E6E6E6;
+				border-top-style: solid;
+				border-top-width: 1px;
+				font-size: 12px;
+				color: #999999;
+				text-align: center;
+			}
+			
+			.links {
+				padding: 30px 0px 15px 0px;
+				height: 21px;
+			}
+			
+			.links>ul {
+				margin-left: 10%;
+				list-style: none;
+			}
+			
+			.links>ul>li {
+				float: left;
+				padding: 0px 15px;
+				border-right-color: #999999;
+				border-right-style: solid;
+				border-right-width: 1px;
+			}
+			
+			.links>ul>li:hover {
+				text-decoration: underline;
+				cursor: pointer;
+			}
+			
+			.links>ul>li:last-child {
+				border-right-width: 0px;
+			}
+			
+			.copyright {
+				height: 21px;
+			}
+			
+			#fixed {
+				position: fixed;
+				right: 0px;
+				top: 190px;
+			}
+			
+			#fixed:hover {
+				cursor: pointer;
+			}
+		</style>
+		<script type="text/javascript">
+			function changeImg(index) {
+				var img = document.getElementById("wjdc");
+				if (index == 1) {
+					img.src = "img/wjdc1.png";
+				} else {
+					img.src = "img/wjdc2.png";
+				}
+			}
+			var yzmIndex = 0;
+
+			function changeYzm() {
+				yzmIndex++;
+				yzmIndex = yzmIndex % 7;
+				var yzmImg = document.getElementById("yzmImg");
+				if (yzmIndex == 0) {
+					yzmImg.src = "img/yzm/yzm1.png";
+				} else if (yzmIndex == 1) {
+					yzmImg.src = "img/yzm/yzm2.png";
+				} else if (yzmIndex == 2) {
+					yzmImg.src = "img/yzm/yzm3.png";
+				} else if (yzmIndex == 3) {
+					yzmImg.src = "img/yzm/yzm4.png";
+				} else if (yzmIndex == 4) {
+					yzmImg.src = "img/yzm/yzm5.png";
+				} else if (yzmIndex == 5) {
+					yzmImg.src = "img/yzm/yzm6.png";
+				} else if (yzmIndex == 6) {
+					yzmImg.src = "img/yzm/yzm7.png";
+				}
+			}
+
+			function getFocus(my_input, my_p, value) {
+				var this_input = document.getElementById(my_input);
+				var this_p = document.getElementById(my_p);
+				if (my_input == "i2" || my_input == "i3")
+					this_input.type = "password";
+				if (this_input.value == value) {
+					this_input.value = "";
+					this_input.style.color = "#000000";
+				}
+				this_p.style.display = "block";
+			}
+
+			function lostFocus(my_input, my_p, value) {
+				var this_input = document.getElementById(my_input);
+				var this_p = document.getElementById(my_p);
+				if (this_input.value == "") {
+					this_input.value = value;
+					this_input.style.color = "#CCCCCC";
+					this_input.type = "text";
+				}
+				this_p.style.display = "none";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="top">
+			<div>
+				<a><img src="img/logo.png" alt="京东logo" /></a>
+				<div class="title">
+					欢迎注册
+				</div>
+				<div class="login">
+					已有账号？
+					<a href="#">请登录</a>
+				</div>
+			</div>
+		</div>
+		<div id="content">
+			<div>
+				<div class="left">
+					<form action="#" method="post">
+						<div>
+							<div>
+								用　户　名
+								<input id="i1" type="text" onfocus="getFocus('i1','p1','您的账户名和登录名')" onblur="lostFocus('i1','p1','您的账户名和登录名')" value="您的账户名和登录名" />
+							</div>
+							<p id="p1"><img src="img/gth.png" align="left" />支持中文、字母、数字、“-” “_”的组合，4-20个字符</p>
+						</div>
+						<div>
+							<div>
+								设 置 密 码
+								<input id="i2" type="text" onfocus="getFocus('i2','p2','建议至少使用两种字符组合')" onblur="lostFocus('i2','p2','建议至少使用两种字符组合')" value="建议至少使用两种字符组合" />
+							</div>
+							<p id="p2"><img src="img/gth.png" align="left" />建议使用字母、数字和符号两种及以上的组合，6-20个字符</p>
+						</div>
+						<div>
+							<div>
+								确 认 密 码
+								<input id="i3" type="text" onfocus="getFocus('i3','p3','请再次输入密码')" onblur="lostFocus('i3','p3','请再次输入密码')" value="请再次输入密码" />
+							</div>
+							<p id="p3"><img src="img/gth.png" align="left" />请再次输入密码</p>
+						</div>
+						<div>
+							<div>
+								中国 0086
+								<input id="i4" type="text" onfocus="getFocus('i4','p4','建议使用常用手机')" onblur="lostFocus('i4','p4','建议使用常用手机')" value="建议使用常用手机" />
+							</div>
+							<p id="p4"><img src="img/gth.png" align="left" />完成验证后，你可以用该手机登录和找回密码</p>
+						</div>
+						<div>
+							<div class="yzm">
+								验　证　码
+								<input id="i5" type="text" onfocus="getFocus('i5','p5','请输入验证码')" onblur="lostFocus('i5','p5','请输入验证码')" value="请输入验证码" />
+								<a href="#yxm"><img id="yzmImg" src="img/yzm/yzm1.png" onclick="changeYzm()" /></a>
+							</div>
+							<p id="p5"><img src="img/gth.png" align="left" />看不清？点击图片更换验证码</p>
+						</div>
+						<div>
+							<div class="yzm">
+								手机验证码
+								<input id="i6" type="text" onfocus="getFocus('i6','p6','请输入手机验证码')" onblur="lostFocus('i6','p6','请输入手机验证码')" value="请输入手机验证码" />
+								<input type="button" value="获取验证码" />
+							</div>
+							<p id="p6"></p>
+						</div>
+						<input type="submit" value="立即注册" />
+					</form>
+				</div>
+				<div class="right">
+					<div class="up">
+						<a href="#"><img src="img/img1.png" alt="图片" align="left" />企业用户注册</a>
+					</div>
+					<div class="down">
+						<a href="#"><img src="img/img2.png" alt="图片" align="left" />INTERNATIONAL CUSTOMERS</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="foot">
+			<div class="links">
+				<ul>
+					<li>关于我们</li>
+					<li>联系我们</li>
+					<li>人才招聘</li>
+					<li>商家入驻</li>
+					<li>广告服务</li>
+					<li>手机京东</li>
+					<li>友情链接</li>
+					<li>销售联盟</li>
+					<li>京东社区</li>
+					<li>京东公益</li>
+					<li>English Site</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				Copyright&copy;2004-2016&nbsp;&nbsp;京东JD.com&nbsp;版权所有
+			</div>
+
+		</div>
+		<div id="fixed">
+			<img id="wjdc" src="img/wjdc1.png" onmouseover="changeImg(2)" onmouseout="changeImg(1)" />
+		</div>
+	</body>
+
+</html>

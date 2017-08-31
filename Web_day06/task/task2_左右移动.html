@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>左右移动</title>
+		<style type="text/css">
+			select {
+				font-size: 30px;
+				width: 100px;
+				height: 372px;
+				float: left;
+			}
+			
+			div {
+				float: left;
+			}
+			
+			#all {
+				margin: auto;
+				margin-top: 50px;
+				width: 800px;
+				float: none;
+			}
+			
+			input {
+				width: 100px;
+				height: 50px;
+				font-size: 30px;
+				margin: 20px 20px;
+			}
+			
+			.updown>input {
+				width: 150px;
+				height: 50px;
+				font-size: 25px;
+				margin: 20px 20px;
+			}
+		</style>
+		<script type="text/javascript">
+			function toLeft() {
+				var leftSel = document.getElementById("left");
+				var rightSel = document.getElementById("right");
+				var ops = rightSel.options;
+				for (var i = 0; i < ops.length; i++) {
+					if (ops[i].selected) {
+						leftSel.appendChild(ops[i]);
+						i--;
+					}
+				}
+			}
+
+			function allToLeft() {
+				var leftSel = document.getElementById("left");
+				var rightSel = document.getElementById("right");
+				var ops = rightSel.options;
+				for (var i = 0; i < ops.length;) {
+					leftSel.appendChild(ops[i]);
+				}
+			}
+
+			function toRight() {
+				var leftSel = document.getElementById("left");
+				var rightSel = document.getElementById("right");
+				var ops = leftSel.options;
+				for (var i = 0; i < ops.length; i++) {
+					if (ops[i].selected) {
+						rightSel.appendChild(ops[i]);
+						i--;
+					}
+				}
+			}
+
+			function allToRight() {
+				var leftSel = document.getElementById("left");
+				var rightSel = document.getElementById("right");
+				var ops = leftSel.options;
+				for (var i = 0; i < ops.length;) {
+					rightSel.appendChild(ops[i]);
+				}
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="all">
+			<select id="left" size="10" multiple>
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+				<option>6</option>
+				<option>7</option>
+				<option>8</option>
+				<option>9</option>
+				<option>10</option>
+			</select>
+			<div>
+				<input type="button" value=">" onclick="toRight()" /><br />
+				<input type="button" value=">>>" onclick="allToRight()" /><br />
+				<input type="button" value="<" onclick="toLeft()" /><br />
+				<input type="button" value="<<<" onclick="allToLeft()" /><br />
+			</div>
+			<select id="right" size="10" multiple>
+	
+			</select>
+		</div>
+
+	</body>
+
+</html>

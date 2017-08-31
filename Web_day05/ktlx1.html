@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>利用JS修改内嵌样式和外部样式</title>
+		<link rel="stylesheet" type="text/css" href="css/ktlx1.css" />
+		<script src="js/kslx1.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div id="div1" style="width: 100px; height: 100px; background-color: red;">
+			内嵌样式<br />
+			<input type="button" onclick="changeNQAdd()" value="增加" /><br />
+			<input type="button" onclick="changeNQSmall()" value="减小" />
+		</div>
+		<div id="div2" onclick="changeWB()">
+			外部样式<br />
+			<input type="button" onclick="changeWBAdd()" value="增加" /><br />
+			<input type="button" onclick="changeWBSmall()" value="减小" />
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Animal(sName, sAge) {
+				this.name = sName;
+				this.age = sAge;
+				this.sleep = function() {
+					alert("睡觉");
+				}
+			}
+			function Cat(sName,sAge){
+				this.inherit=Animal;
+				this.inherit(sName,sAge);
+				delete this.inherit;
+				
+				this.catchMouse=function(){
+					alert("抓老鼠！")
+				}
+			}
+			
+			var cat=new Cat("加菲猫",20);
+			alert(cat.name+"  "+cat.age);
+			cat.sleep();
+			cat.catchMouse();
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

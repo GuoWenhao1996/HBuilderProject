@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<script language="javascript">
+			function doclick() {
+				var td = event.srcElement; // 通过event.srcelement 获取激活事件的对象 td  
+				alert("行号：" + (td.parentElement.rowIndex + 1) + "，内容：" + td.innertext);
+				var tab = document.getElementById("test");
+				//表格行数  
+				var rows = tab.rows.length;
+				var rows = tab.rows.length;
+				//表格列数  
+				var cells = tab.rows.item(0).cells.length;
+				alert("行数" + rows + "列数" + cells);
+			}
+		</script>
+	</head>
+
+	<body>
+		<table id="test" onclick="doclick()">
+			<tr>
+				<td>
+					9:00
+				</td>
+				<td>
+					10:00
+				</td>
+			</tr>
+			<tr>
+				<td>
+					11:00
+				</td>
+				<td>
+					12:00
+				</td>
+			</tr>
+		</table>
+	</body>
+
+</html>
