@@ -1,0 +1,36 @@
+#menu ul {
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+#menu ul>li {
+	height: 20px;
+	line-height: 20px;
+	padding-left: 30px;
+	cursor: pointer;
+}
+
+#menu ul>li:hover {
+	background-color: #afdfe4;
+}
+
+#addStudentFrom {
+	padding: 10px 60px;
+	font-size: 16px;
+}
+
+#addStudentFrom input {
+	margin: 10px 0px;
+	font-size: 16px;
+}
+
+#addStudentFrom #save {
+	margin-left: 90px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+#addStudentFrom #cancel {
+	margin-top: 10px;
+}

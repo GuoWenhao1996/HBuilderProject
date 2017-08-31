@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="easyui/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="easyui/themes/icon.css">
+		<script type="text/javascript" src="easyui/jquery.min.js"></script>
+		<script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+		<script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/studentData.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+
+	<body class="easyui-layout">
+		<div data-options="region:'north'" style="height:80px;">
+			<h1 align="center" style="font-size: 30px;">中 软 国 际<sup>&reg;</sup>学 生 管 理 系 统&trade;</h1>
+		</div>
+		<div data-options="region:'south'" style="height:60px;">
+			<p align="center" style="font-size: 16px;">Copyright&copy;2017-2017&nbsp;&nbsp;郭丶丶gwhcool.cn&nbsp;版权所有</p>
+		</div>
+		<div data-options="region:'west',title:'导航栏',iconCls:'icon-nav'" style="width:150px;">
+			<!--此行以下为导航菜单-->
+			<div id="menu" class="easyui-accordion" data-options="fit:true">
+				<div title="教务管理" data-options="iconCls:'icon-book'">
+					<ul>
+						<li name="html/学生管理.html">学生管理</li>
+						<li name="html/暂未开放.html">课程管理</li>
+						<li name="html/暂未开放.html">选课管理</li>
+					</ul>
+				</div>
+				<div title="财务管理" data-options="iconCls:'icon-money'">
+					<ul>
+						<li name="html/暂未开放.html">学费管理</li>
+						<li name="html/暂未开放.html">工资管理</li>
+						<li name="html/暂未开放.html">奖金管理</li>
+						<li name="html/暂未开放.html">奖学金管理</li>
+					</ul>
+				</div>
+				<div title="系统管理" data-options="iconCls:'icon-system'">
+					<ul>
+						<li name="html/暂未开放.html">添加管理员</li>
+						<li name="html/暂未开放.html">删除管理员</li>
+						<li name="html/暂未开放.html">修改密码</li>
+						<li name="html/暂未开放.html">权限分配</li>
+					</ul>
+				</div>
+			</div>
+			<!--此行以上为导航菜单-->
+		</div>
+		<div data-options="region:'center'" style="padding:5px;background:#eee;">
+			<!--此行以下为选项卡-->
+			<div id="tab" class="easyui-tabs" data-options="fit:true">
+				<div title="日历" style="padding:0px;display:none;">
+					<input class="easyui-datetimebox" name="birthday" data-options="required:true,showSeconds:false" value="Today" style="width:150px;">
+					<div id="cc" class="easyui-calendar" data-options="fit:true">
+					</div>
+				</div>
+			</div>
+			<!--此行以上为选项卡-->
+		</div>
+		<script type="text/javascript">
+			$('#menu li').click(function() {
+				var addTitle = $(this).text();
+				var exist = $('#tab').tabs('exists', addTitle);
+				if (exist) {
+					$('#tab').tabs('select', addTitle);
+					return;
+				}
+				var url = $(this).attr('name');
+				// add a new tab panel    
+				$('#tab').tabs('add', {
+					title: addTitle,
+					selected: true,
+					closable: true,
+					href: url
+				});
+			});
+		</script>
+		<script type="text/javascript" id="studentModel">
+	    	<tr>
+	    		<td></td>
+	    		<td>${num}</td>
+	    		<td>${name}</td>
+	    		<td>${age}</td>
+	    		<td>${telephone}</td>
+	    		<td>${email}</td>
+	    	</tr>
+		</script>
+	</body>
+
+</html>

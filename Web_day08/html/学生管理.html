@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			$('#studentModel').tmpl(students).appendTo('#studentTable tbody');
+			$('#studentTable').datagrid({
+				toolbar: [{
+					iconCls: 'icon-add',
+					text: '增加',
+					handler: function() {
+						$('#addStudentWin').window('open');
+					}
+				}, '-', {
+					iconCls: 'icon-edit',
+					text: '修改',
+					handler: function() {
+						$.messager.alert('sorry', '修改功能暂未开放！');
+					}
+				}, '-', {
+					iconCls: 'icon-remove',
+					text: '删除',
+					handler: function() {
+						$.messager.confirm('确认', '您确认想要删除记录吗？', function(r) {
+							if (r) {
+								$.messager.alert('sorry', '删除功能暂未开放！');
+							}
+						});
+					}
+				}]
+			});
+			$.extend($.fn.validatebox.defaults.rules, {
+				age: {
+					validator: function(value, param) {
+						return value >= 0 && value <= 100;
+					},
+					message: '年龄应为0~100的数字！'
+				},
+				telephone: {
+					validator: function(value, param) {
+						var reg = /^[1][3|5|8|7]\d{9}$/;
+						return reg.test(value);
+					},
+					message: '请输入正确的手机号格式！'
+				}
+			});
+			$('#search').bind('click', function() {
+				$.messager.alert('sorry', '查询功能暂未开放！');
+			});
+			$('#save').bind('click', function() {
+				$.messager.alert('sorry', '增加功能暂未开放！');
+			});
+			$('#cancel').bind('click', function() {
+				$('#addStudentWin').window('close');
+			});
+		</script>
+		<input class="easyui-textbox" style="width:200px" prompt="请输入姓名进行模糊查询">
+		<a id="search" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+		<table class="easyui-datagrid" id="studentTable" data-options="rownumbers:true">
+			<thead>
+				<tr>
+					<th data-options="field:'',checkbox:true"></th>
+					<th data-options="field:'num',width:100">编号</th>
+					<th data-options="field:'name',width:200">姓名</th>
+					<th data-options="field:'age',width:100">年龄</th>
+					<th data-options="field:'telephone',width:200">电话</th>
+					<th data-options="field:'email',width:500">email</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<div id="addStudentWin" class="easyui-window" title="增加学生" style="width:400px;height:300px" data-options="iconCls:'icon-add',modal:true,closed:true,collapsible:false,minimizable:false,maximizable:false,resizable:false">
+			<form id="addStudentFrom" method="post">
+				<div>
+					<label for="name">姓名：</label>
+					<input class="easyui-validatebox" type="text" name="name" data-options="required:true" />
+				</div>
+				<div>
+					<label for="age">年龄：</label>
+					<input class="easyui-validatebox" type="text" name="age" data-options="required:true,validType:'age'" />
+				</div>
+				<div>
+					<label for="telephone">电话：</label>
+					<input class="easyui-validatebox" type="text" name="telephone" data-options="required:true,validType:'telephone'" />
+				</div>
+				<div>
+					<label for="email">邮箱：</label>
+					<input class="easyui-validatebox" type="text" name="email" data-options="validType:'email'" />
+				</div>
+				<a id="save" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save'">保存</a>
+				<a id="cancel" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'">取消</a>
+			</form>
+		</div>
+	</body>
+
+</html>

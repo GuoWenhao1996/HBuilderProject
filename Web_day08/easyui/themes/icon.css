@@ -67,8 +67,6 @@
 .icon-more{
 	background:url('icons/more.png') no-repeat center center;
 }
-
-
 .icon-mini-add{
 	background:url('icons/mini_add.png') no-repeat center center;
 }
@@ -94,3 +92,16 @@
 .icon-large-chart{
 	background:url('icons/large_chart.png') no-repeat center center;
 }
+.icon-book{
+	background:url('icons/book.png') no-repeat center center;
+}
+.icon-nav{
+	background:url('icons/nav.png') no-repeat center center;
+}
+.icon-system{
+	background:url('icons/system.png') no-repeat center center;
+}
+.icon-money{
+	background:url('icons/money.png') no-repeat center center;
+}
+
