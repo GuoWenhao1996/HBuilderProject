@@ -11,11 +11,11 @@
 		<script src="easyui/locale/easyui-lang-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/jquery.tmpl.min.js" type="text/javascript" charset="utf-8"></script>
 		<script src="js/studentData.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
 	</head>
 
 	<body class="easyui-layout">
-		<div data-options="region:'north'" style="height:80px;">
+		<div data-options="region:'north'" style="height:100px;">
 			<h1 align="center" style="font-size: 30px;">中 软 国 际<sup>&reg;</sup>学 生 管 理 系 统&trade;<sub><small>基于easyUI前端框架实现</small></sub></h1>
 		</div>
 		<div data-options="region:'south'" style="height:60px;">
@@ -69,6 +69,11 @@
 					$('#tab').tabs('select', addTitle);
 					return;
 				}
+				$.messager.progress({
+					title: '初始化',
+					msg: '正在初始化数据',
+					interval:5
+				}); // 显示进度条
 				var url = $(this).attr('name');
 				// add a new tab panel    
 				$('#tab').tabs('add', {
@@ -77,6 +82,9 @@
 					closable: true,
 					href: url
 				});
+				setTimeout(function() {
+					$.messager.progress('close');
+				}, 1500);
 			});
 		</script>
 		<script type="text/javascript" id="studentModel">

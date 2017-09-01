@@ -53,7 +53,50 @@
 				$.messager.alert('sorry', '查询功能暂未开放！');
 			});
 			$('#save').bind('click', function() {
-				$.messager.alert('sorry', '增加功能暂未开放！');
+				$('#addStudentFrom').submit();
+			});
+			$('#addStudentFrom').form({
+				url: "#",
+				onSubmit: function() {
+					$.messager.progress({
+						title: '保存',
+						msg: '正在保存',
+						interval:50
+					}); // 显示进度条
+					var isValid = $(this).form('validate');
+					if (!isValid) {
+						$.messager.progress('close'); // 如果表单是无效的则隐藏进度条
+					}
+					return isValid; // 返回false终止表单提交
+				},
+				success: function() {
+					var num;
+					if (students.length == 0) {
+						num = 1;
+					} else {
+						num = students[students.length - 1].num + 1;
+					}
+					var name = $('#addStudentFrom input:eq(0)').val();
+					var age = $('#addStudentFrom input:eq(1)').val();
+					var tel = $('#addStudentFrom input:eq(2)').val();
+					var email = $('#addStudentFrom input:eq(3)').val();
+					var student = new Student(parseInt(num), name, age, tel, email);
+					students[students.length] = student;
+					$('#addStudentFrom input:eq(0)').val("");
+					$('#addStudentFrom input:eq(1)').val("");
+					$('#addStudentFrom input:eq(2)').val("");
+					$('#addStudentFrom input:eq(3)').val("");
+					$('#studentTable tbody tr').remove();
+					$('#studentModel').tmpl(students).appendTo('#studentTable tbody');
+					// 调用 'refresh' 方法更新选项卡面板的内容
+					var tab = $('#tab').tabs('getSelected');
+					// 获取选择的面板
+					tab.panel('refresh');
+					$('#addStudentWin').window('close');
+					setTimeout(function() {
+						$.messager.progress('close'); // 如果提交成功则隐藏进度条
+					}, 1000);
+				}
 			});
 			$('#cancel').bind('click', function() {
 				$('#addStudentWin').window('close');
@@ -61,7 +104,7 @@
 		</script>
 		<input class="easyui-textbox" style="width:200px" prompt="请输入姓名进行模糊查询">
 		<a id="search" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
-		<table class="easyui-datagrid" id="studentTable" data-options="rownumbers:true">
+		<table class="easyui-datagrid" id="studentTable" data-options="rownumbers:true,striped:true">
 			<thead>
 				<tr>
 					<th data-options="field:'',checkbox:true"></th>
@@ -76,7 +119,7 @@
 			</tbody>
 		</table>
 		<div id="addStudentWin" class="easyui-window" title="增加学生" style="width:400px;height:300px" data-options="iconCls:'icon-add',modal:true,closed:true,collapsible:false,minimizable:false,maximizable:false,resizable:false">
-			<form id="addStudentFrom" method="post">
+			<form id="addStudentFrom" method="post" action="#" data-options="novalidate:true">
 				<div>
 					<label for="name">姓名：</label>
 					<input class="easyui-validatebox" type="text" name="name" data-options="required:true" />
